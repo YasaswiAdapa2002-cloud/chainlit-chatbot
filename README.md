@@ -41,28 +41,29 @@ This repository is also designed as a **Backstage software template**, so it can
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/<your-username>/chainlit-voice-assistant-template.git
-cd chainlit-voice-assistant-template```
+cd chainlit-voice-assistant-template
 
 ### 2️⃣ Create a virtual environment (optional)
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # macOS/Linux
-.venv\Scripts\activate      # Windows```
+.venv\Scripts\activate      # Windows
 
 ### 3️⃣ Install dependencies
-```bash
-uv sync```
+
+uv sync
 
 Or 
-```bash
-uv pip install chainlit langchain langchain_googlegenai```
+
+uv pip install chainlit langchain langchain_googlegenai
 
 ### 4️⃣ Set your Google Gemini API key
-```bash
+
 export GOOGLE_API_KEY="your_key_here"      # macOS/Linux
-set GOOGLE_API_KEY=your_key_here           # Windows```
+set GOOGLE_API_KEY=your_key_here           # Windows
 
 ### 5️⃣ Run the chatbot
-```bash
-uv run chainlit run main.py```
+
+uv run chainlit run main.py
+
 
