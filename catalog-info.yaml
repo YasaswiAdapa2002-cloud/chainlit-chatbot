@@ -55,7 +55,7 @@ spec:
       name: Publish to GitHub
       action: publish:github
       input:
-        repoUrl: github.com?owner=${{ parameters.owner }}&repo=${{ parameters.name }}
+        repoUrl: https://github.com/${{ parameters.owner }}/${{ parameters.name }}
         description: ${{ parameters.description }}
         defaultBranch: main
         repoVisibility: public
