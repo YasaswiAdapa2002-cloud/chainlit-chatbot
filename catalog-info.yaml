@@ -1,76 +1,23 @@
-apiVersion: scaffolder.backstage.io/v1beta3
-kind: Template
+apiVersion: backstage.io/v1alpha1
+kind: Component
 metadata:
-  name: chainlit-chatbot-template
-  title: 🤖 Chainlit Gemini Chatbot Template
-  description: >
-    A ready-to-use Chainlit + Google Gemini chatbot using LangChain. 
-    This template allows users to create conversational AI assistants that can 
-    answer multiple questions on a specific topic.
+  name: ${{ values.name | dump }}
+  description: A Chainlit chatbot using Google Gemini via LangChain.
   tags:
-    - python
-    - ai
-    - langchain
     - chainlit
     - gemini
-    - chatbot
+    - langchain
+    - python
   links:
-    - title: GitHub Repository
+    - title: GitHub Repo
       url: https://github.com/YasaswiAdapa2002-cloud/chainlit-chatbot
 spec:
+  type: service
   owner: yasaswi-adapa
-  type: template
-  parameters:
-    - title: Project Configuration
-      required:
-        - name
-        - owner
-      properties:
-        name:
-          type: string
-          title: Project Name
-          description: Name of the new chatbot project to create.
-        owner:
-          type: string
-          title: Owner
-          description: The owner or team responsible for this project.
-        description:
-          type: string
-          title: Description
-          description: A short description of what this chatbot will do.
-          default: A Chainlit chatbot powered by Google Gemini.
-  steps:
-    - id: fetch-template
-      name: Fetch from GitHub
-      action: fetch:template
-      input:
-        url: https://github.com/YasaswiAdapa2002-cloud/chainlit-chatbot
-        targetPath: ./  # Copy all files
-        values:
-          name: ${{ parameters.name }}
-          owner: ${{ parameters.owner }}
-          description: ${{ parameters.description }}
+  lifecycle: experimental
 
-    - id: publish
-      name: Publish to GitHub
-      action: publish:github
-      input:
-        repoUrl: github.com?owner=${{ parameters.owner }}&repo=${{ parameters.name }}
-        description: ${{ parameters.description }}
-        defaultBranch: main
-        repoVisibility: public
 
-    - id: register
-      name: Register in Backstage
-      action: catalog:register
-      input:
-        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        catalogInfoPath: /catalog-info.yaml
 
-  output:
-    links:
-      - title: "View Repository"
-        url: ${{ steps.publish.output.remoteUrl }}
-      - title: "Open in Backstage"
-        icon: catalog
-        entityRef: ${{ steps.register.output.entityRef }}
+
+
+
