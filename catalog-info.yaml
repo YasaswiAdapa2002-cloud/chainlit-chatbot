@@ -1,23 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name | dump }}
+  name: ${{ parameters.name }}  # Use the template parameter here
   description: A Chainlit chatbot using Google Gemini via LangChain.
   tags:
     - chainlit
     - gemini
     - langchain
     - python
-  links:
-    - title: GitHub Repo
-      url: https://github.com/YasaswiAdapa2002-cloud/chainlit-chatbot
 spec:
   type: service
-  owner: yasaswi-adapa
+  owner: user:guest
   lifecycle: experimental
-
-
-
-
-
-
