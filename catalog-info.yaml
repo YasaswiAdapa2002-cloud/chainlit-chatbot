@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ parameters.name }}  # Use the template parameter here
+  name: chainlit-chatbot  # Use the template parameter here
   description: A Chainlit chatbot using Google Gemini via LangChain.
   tags:
     - chainlit
